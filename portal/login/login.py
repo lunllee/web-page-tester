@@ -9,7 +9,7 @@ class Login:
         self._pw = login_pw
         self._driver = get_driver
         logging.info(f"Login ID: {self._id}, Login PW: {self._pw}")
-        #print(f"Login ID: {self._id}, Login PW: {self._pw}")
+        print(f"Login ID: {self._id}, Login PW: {self._pw}")
 
     def alert_page_check(self):
         print("\033[32m" + "alert page check" + "\033[0m")
@@ -20,8 +20,13 @@ class Login:
         else:
             print("alert page not found")
 
-    def admin_login(self):
-        print("\033[32m" + "admin login" + "\033[0m")
+    def portal_login_page_in(self):
+        print("\033[32m" + "into the login page" + "\033[0m")
+        driver.Driver.find_by_class(self._driver, 'mypage', 10).click()
+
+
+    def portal_login(self):
+        print("\033[32m" + "portal login" + "\033[0m")
         select_name_box = driver.Driver.find_by_id(self._driver, 'loginId', 10)
         random_typing(select_name_box, self._id, 0.00, 0.20)
         select_pw_box = driver.Driver.find_by_id(self._driver, 'loginPw', 10)

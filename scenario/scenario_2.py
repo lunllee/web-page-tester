@@ -3,12 +3,12 @@ from seleniumDriver.driver import Driver
 from time import sleep
 from timeit import default_timer as timer
 from datetime import timedelta
-from admin.login.login import Login
-from admin.selectMenu.dataManager import Data_manager
+from portal.login.login import Login
+from portal.selectMenu.dataRegistration import Data_registration
 from selenium import common
 
 
-class Scenario_1:
+class Scenario_2:
     def __init__(self, scenario_url=None):
         self.scenario_url = scenario_url
 
@@ -22,18 +22,16 @@ class Scenario_1:
             driver.get_url(self.scenario_url)
 
             logging.info('Loing start, ID:lwjtest3')
-            admin_login = Login('lwjtest3', 'welcome1!', driver)
-            admin_login.alert_page_check()
-            admin_login.admin_login()
-            admin_login.alert_check_accept()
+            portal_login = Login('lwjtest3', 'welcome1!', driver)
+            portal_login.alert_page_check()
+            portal_login.portal_login_page_in()
+            portal_login.portal_login()
+            portal_login.alert_check_accept()
             sleep(1)
 
-            #data_manager = Data_manager(driver)
-            #data_manager.select_dataset_manager_list()
-            #data_manager.select_dataset_list()
-            #dataset_result = data_manager.dataset_save_process()
-            #print("Save dataset title : " + "\033[32m" + dataset_result + "\033[0m")
-            #sleep(1)
+            data_registration = Data_registration(driver)
+            data_registration.select_data_registration()
+            sleep(1)
 
             driver.close()
             driver.quit()
