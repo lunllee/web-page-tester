@@ -56,60 +56,52 @@ class Driver:
         return result
 
     def find_by_name(self, get_name, get_time):
-        wait = WebDriverWait(self.driver, get_time)
-        element = wait.until(
+        result = WebDriverWait(self.driver, get_time).until(
             ec.presence_of_element_located(
                 (By.NAME, get_name)))
-        return element
+        return result
 
     def find_by_class(self, get_class, get_time):
-        wait = WebDriverWait(self.driver, get_time)
-        element = wait.until(
+        result = WebDriverWait(self.driver, get_time).until(
             ec.presence_of_element_located(
                 (By.CLASS_NAME, get_class)))
-        return element
+        return result
 
     def find_by_tag(self, get_tag, get_time):
-        wait = WebDriverWait(self.driver, get_time)
-        element = wait.until(
+        result = WebDriverWait(self.driver, get_time).until(
             ec.presence_of_element_located(
                 (By.TAG_NAME, get_tag)))
-        return element
+        return result
 
     def find_by_xpath(self, get_xpath, get_time):
-        wait = WebDriverWait(self.driver, get_time)
-        element = wait.until(
+        result = WebDriverWait(self.driver, get_time).until(
             ec.presence_of_element_located(
                 (By.XPATH, get_xpath)))
-        return element
+        return result
 
     def find_all_by_name(self, get_name, get_time):
-        wait = WebDriverWait(self.driver, get_time)
-        element = wait.until(
+        result = WebDriverWait(self.driver, get_time).until(
             ec.presence_of_all_elements_located(
                 (By.NAME, get_name)))
-        return element
+        return result
 
     def find_all_by_class(self, get_class, get_time):
-        wait = WebDriverWait(self.driver, get_time)
-        element = wait.until(
+        result = WebDriverWait(self.driver, get_time).until(
             ec.presence_of_all_elements_located(
                 (By.CLASS_NAME, get_class)))
-        return element
+        return result
 
     def find_all_by_tag(self, get_tag, get_time):
-        wait = WebDriverWait(self.driver, get_time)
-        element = wait.until(
+        result = WebDriverWait(self.driver, get_time).until(
             ec.presence_of_all_elements_located(
                 (By.TAG_NAME, get_tag)))
-        return element
+        return result
 
     def find_by_link(self, get_text, get_time):
-        wait = WebDriverWait(self.driver, get_time)
-        element = wait.until(
+        result = WebDriverWait(self.driver, get_time).until(
             ec.presence_of_all_elements_located(
                 (By.LINK_TEXT, get_text)))
-        return element
+        return result
 
     def find_alert(self, get_time):
         return WebDriverWait(self.driver, get_time).until(ec.alert_is_present())
